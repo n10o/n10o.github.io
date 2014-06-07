@@ -2,12 +2,12 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://yoursite.com
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
+url: http://n10o.com
+title: n10o.com
+subtitle: engineer memo
+author: n10o
 simple_search: https://www.google.com/search
-description:
+description: engineer
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
