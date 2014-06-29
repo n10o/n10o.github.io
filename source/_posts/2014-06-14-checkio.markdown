@@ -11,7 +11,7 @@ checkioはpythonを使って様々な課題を解いていく海外サービス�
 
 ユーザ登録時にpythonの問題が出題され、その問題を解かないとユーザ登録ができないということで、2014/2月ぐらいに話題になりました。
 
-私が登録したときに出題された問題は、受け取った配列の最初の３要素の合計値を出すように、以下のcheckio関数を完成させよ」というものでした。
+私が登録したときに出題された問題は、「受け取った配列の最初の３要素の合計値を出すように、以下のcheckio関数を完成させよ」というものでした。
 ``` python checkio first tryout
 #python3.3 is inside
 def checkio(els):
@@ -21,7 +21,7 @@ if checkio([1, 2, 3, 4, 5, 6]) == 6:
     print('Done!')
 ```
 私は意気揚々と以下のように解答しましたが、
-Wrong, Try again!でした。テストケースは下のやつだけじゃないんですね。
+Wrong, Try again!でした。下に書いてあるテストケースは罠ですね。
 ``` python n10o's sweet answer
 def checkio(els):
     return 6

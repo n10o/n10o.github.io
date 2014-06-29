@@ -1,0 +1,14 @@
+---
+layout: post
+title: "divmod"
+date: 2014-06-29 21:24:38 +0900
+comments: true
+categories: python
+---
+checkioで、数値を発音(e.x. 123->one hundred twenty three)に直す問題で役に立った、商と余りを同時に算出する渋い関数
+``` python
+> divmod(123, 10)
+(12, 3)
+> divmod(12, 10)
+(1, 2)
+```
