@@ -9,9 +9,8 @@ deploy:
         code: |-
           git config --global user.email "0x0082@gmail.com"
           git config --global user.name "wercker"
-          rm -rf .git
     - script:
         name: deploy to github
         code: |-
           bundle exec rake generate
-          bundle exec rake deplo
+          bundle exec rake deploy
