@@ -1,0 +1,16 @@
+box: wercker/ruby                                                                                                                                             
+build:
+    steps:
+        - bundle-install
+deploy:
+    steps:
+    - script:
+        name: configure
+        code: |-
+          git config --global user.email "0x0082@gmail.com"
+          git config --global user.name "wercker"
+    - script:
+        name: deploy to github
+        code: |-
+          bundle exec rake generate
+          bundle exec rake deplo
