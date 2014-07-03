@@ -7,7 +7,7 @@ categories: github
 ---
 このブログはOctopressを使ってgithub pagesでホストしています。
 
-deployが面倒だったので、CIツールの[wercker](http://wercker.com/)を使って、githubに記事をpushしたら自動deployする設定にしています。
+deployが面倒(rake generate -> rake deploy)だったので、CIツールの[wercker](http://wercker.com/)を使って、githubに記事をpushしたら自動deployする設定にしています。
 
 たまにbuildやdeployで反応がなくなって15分のタイムアウトでこけますが、それを除けばwerckerいい感じです。
 
