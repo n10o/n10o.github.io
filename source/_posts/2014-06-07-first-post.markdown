@@ -9,7 +9,7 @@ categories: github
 
 deployが面倒(rake generate -> rake deploy)だったので、CIツールの[wercker](http://wercker.com/)を使って、githubに記事をpushしたら自動deployする設定にしています。
 
-たまにbuildやdeployで反応がなくなって15分のタイムアウトでこけますが、それを除けばwerckerいい感じです。
+たまにbuildやdeployで反応がなくなって15分のタイムアウトでこけるところと、どうしてもウェルカー(正しくはワーカー)と読んでしまう事を除けば、werckerいい感じです。
 
 ![wercker](/images/wercker.jpg)
 
