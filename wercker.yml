@@ -4,14 +4,15 @@ build:
         - bundle-install
 deploy:
     steps:
-    - script:
-        name: configure
-        code: |-
-          git config --global user.email "0x0082@gmail.com"
-          git config --global user.name "wercker"
-          bundle exec rake setup_github_pages\["$GIT_REMOTE"\]
-    - script:
-        name: deploy to github
-        code: |-
-          bundle exec rake generate
-          bundle exec rake deploy
+        - script:
+            name: configure
+            code: |-
+              git config --global user.email "0x0082@gmail.com"
+              git config --global user.name "wercker"
+              bundle exec rake setup_github_pages\["$GIT_REMOTE"\]
+        - bundle-install
+        - script:
+            name: deploy to github
+            code: |-
+              bundle exec rake generate
+              bundle exec rake deploy
