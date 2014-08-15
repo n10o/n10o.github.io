@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: http://n10o.com/sitemap.xml 

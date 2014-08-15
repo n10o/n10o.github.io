@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Js | n10o.com]]></title>
+  <link href="http://n10o.com/blog/categories/js/atom.xml" rel="self"/>
+  <link href="http://n10o.com/"/>
+  <updated>2014-08-15T09:39:36+00:00</updated>
+  <id>http://n10o.com/</id>
+  <author>
+    <name><![CDATA[n10o]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Ec2-signalリリース]]></title>
+    <link href="http://n10o.com/blog/2014/08/15/ec2-signal-released/"/>
+    <updated>2014-08-15T07:49:31+00:00</updated>
+    <id>http://n10o.com/blog/2014/08/15/ec2-signal-released</id>
+    <content type="html"><![CDATA[<p>AWSのEC2でインスタンス(サーバ)の稼働状態の確認/起動/停止を気軽に実施するためのWebアプリの<a href="https://github.com/n10o/ec2-signal">ソースを公開</a>しました。</p>
+
+<p>angular.js + express(node.js) + jade + stylusを使って作っていて、非同期でサクサク動きますし、 画面遷移無しの絞込やソート機能が入っているので、気軽度は高めだと思います。権限管理もAWSのIAMを使えばいいので、自由自在です。</p>
+
+<p>経費削減のために検証環境のサーバを頻繁に起動したり停止したりするので、開発者が自分で気軽に事故なくそういう作業をできるようにしたいという思いから生まれた製品です。</p>
+
+<p>他にも、cronで業務時間外に利用しないインスタンスを停止させるような設定を入れておいた場合に、残業で急遽インスタンスが必要になったという悲しみを背負った時にも使っていただけるのではないかと思います。</p>
+]]></content>
+  </entry>
+  
+</feed>

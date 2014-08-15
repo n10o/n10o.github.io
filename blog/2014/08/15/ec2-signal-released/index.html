@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Ec2-signalリリース - n10o.com</title>
+  <meta name="author" content="n10o">
+
+  
+  <meta name="description" content="AWSのEC2でインスタンス(サーバ)の稼働状態の確認/起動/停止を気軽に実施するためのWebアプリのソースを公開しました。 angular.js + express(node.js) + jade + stylusを使って作っていて、非同期でサクサク動きますし、 &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://n10o.com/blog/2014/08/15/ec2-signal-released">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="n10o.com" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href='http://fonts.googleapis.com/css?family=Noto+Serif:400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">n10o.com</a></h1>
+  
+    <h2>Web developer in Shibuya</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  
+  
+</ul>
+
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="https://github.com/n10o">GitHub</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Ec2-signalリリース</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-15T07:49:31+00:00" pubdate data-updated="true">Aug 15<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>AWSのEC2でインスタンス(サーバ)の稼働状態の確認/起動/停止を気軽に実施するためのWebアプリの<a href="https://github.com/n10o/ec2-signal">ソースを公開</a>しました。</p>
+
+<p>angular.js + express(node.js) + jade + stylusを使って作っていて、非同期でサクサク動きますし、 画面遷移無しの絞込やソート機能が入っているので、気軽度は高めだと思います。権限管理もAWSのIAMを使えばいいので、自由自在です。</p>
+
+<p>経費削減のために検証環境のサーバを頻繁に起動したり停止したりするので、開発者が自分で気軽に事故なくそういう作業をできるようにしたいという思いから生まれた製品です。</p>
+
+<p>他にも、cronで業務時間外に利用しないインスタンスを停止させるような設定を入れておいた場合に、残業で急遽インスタンスが必要になったという悲しみを背負った時にも使っていただけるのではないかと思います。</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">n10o</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-15T07:49:31+00:00" pubdate data-updated="true">Aug 15<span>th</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/aws/'>aws,</a>, <a class='category' href='/blog/categories/js/'>js</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://n10o.com/blog/2014/08/15/ec2-signal-released/" data-via="" data-counturl="http://n10o.com/blog/2014/08/15/ec2-signal-released/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/07/15/fluentd-elasticsearch-plugin/" title="Previous Post: fluent-plugin-elasticsearchのハマりポイント">&laquo; fluent-plugin-elasticsearchのハマりポイント</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+  <aside class="sidebar">
+   
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:n10o.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/08/15/ec2-signal-released/">Ec2-signalリリース</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/15/fluentd-elasticsearch-plugin/">Fluent-plugin-elasticsearchのハマりポイント</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/04/minimum-ansible/">Minimum-ansible</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/03/slack-and-hubot/">Slack-and-hubot</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/03/page-build-warning/">Page-build-warning</a>
+      </li>
+    
+  </ul>
+</section>
+<section>
+  <h1>Category</h1>
+    <span id="tag-cloud"><a href='/blog/categories/ansible-' style='font-size: 120.0%'>ansible,(1)</a> <a href='/blog/categories/aws-' style='font-size: 120.0%'>aws,(1)</a> <a href='/blog/categories/elasticsearch' style='font-size: 120.0%'>elasticsearch(1)</a> <a href='/blog/categories/fluentd-' style='font-size: 120.0%'>fluentd,(1)</a> <a href='/blog/categories/github' style='font-size: 140.0%'>github(2)</a> <a href='/blog/categories/js' style='font-size: 120.0%'>js(1)</a> <a href='/blog/categories/python' style='font-size: 160.0%'>python(3)</a> </span>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - n10o -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+<script>
+  $(document).ready(function() {  
+  var stickyNavTop = $('nav').offset().top;  
+    
+  var stickyNav = function(){  
+  var scrollTop = $(window).scrollTop();  
+         
+  if (scrollTop > stickyNavTop) {   
+      $('nav').addClass('sticky');  
+  } else {  
+      $('nav').removeClass('sticky');   
+  }  
+  };  
+    
+  stickyNav();  
+    
+  $(window).scroll(function() {  
+      stickyNav();  
+  });  
+  });  
+</script>
+
+
+</body>
+</html>

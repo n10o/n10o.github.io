@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Github | n10o.com]]></title>
+  <link href="http://n10o.com/blog/categories/github/atom.xml" rel="self"/>
+  <link href="http://n10o.com/"/>
+  <updated>2014-08-15T09:39:36+00:00</updated>
+  <id>http://n10o.com/</id>
+  <author>
+    <name><![CDATA[n10o]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Page-build-warning]]></title>
+    <link href="http://n10o.com/blog/2014/07/03/page-build-warning/"/>
+    <updated>2014-07-03T10:38:29+00:00</updated>
+    <id>http://n10o.com/blog/2014/07/03/page-build-warning</id>
+    <content type="html"><![CDATA[<p>octopressでページをデプロイするたびに、githubから[n10o.github.io] Page Build Warningというメールがきていました。</p>
+
+<p>現在、URLを見ても明らかなように、apex domain(サブドメイン無しのdomain名)を使っています。</p>
+
+<p>その場合、204.232.175.78(deprecated)に向けていたDNSのAレコードを、192.30.252.153と192.30.252.154に切り替えてくれとのことです。<a href="https://help.github.com/articles/tips-for-configuring-an-a-record-with-your-dns-provider">参考:github help</a></p>
+
+<p>なお、DNSでALIASレコードかANAMEレコードが使える場合はそっちを使えばCDNが効くからオススメらしいです。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Intro]]></title>
+    <link href="http://n10o.com/blog/2014/06/07/first-post/"/>
+    <updated>2014-06-07T05:23:11+00:00</updated>
+    <id>http://n10o.com/blog/2014/06/07/first-post</id>
+    <content type="html"><![CDATA[<p>このブログはOctopressを使ってgithub pagesでホストしています。</p>
+
+<p>deployが面倒(rake generate &ndash;> rake deploy)だったので、CIツールの<a href="http://wercker.com/">wercker</a>を使って、githubに記事をpushしたら自動deployする設定にしています。</p>
+
+<p>たまにbuildやdeployで反応がなくなって15分のタイムアウトでこけるところと、どうしてもウェルカー(正しくはワーカー)と読んでしまう事を除けば、werckerいい感じです。</p>
+
+<p><img src="/images/wercker.jpg" alt="wercker" /></p>
+
+<p>ただ、記事を書く作業が一番面倒なので、そのうち記事を書く作業も自動化したいです。</p>
+]]></content>
+  </entry>
+  
+</feed>

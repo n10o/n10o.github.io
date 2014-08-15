@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Python | n10o.com]]></title>
+  <link href="http://n10o.com/blog/categories/python/atom.xml" rel="self"/>
+  <link href="http://n10o.com/"/>
+  <updated>2014-08-15T09:39:36+00:00</updated>
+  <id>http://n10o.com/</id>
+  <author>
+    <name><![CDATA[n10o]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Minimum-ansible]]></title>
+    <link href="http://n10o.com/blog/2014/07/04/minimum-ansible/"/>
+    <updated>2014-07-04T13:52:52+00:00</updated>
+    <id>http://n10o.com/blog/2014/07/04/minimum-ansible</id>
+    <content type="html"><![CDATA[<p>社内でプレゼンした<a href="http://n10o.com/minimum-ansible/">minimum-ansible</a>の資料を公開しました。github pagesでホストしており、<a href="https://github.com/n10o/minimum-ansible">ここ</a>でソースを公開しています。</p>
+
+<p>プレゼン資料自体はreveal.jsをmarkdown(content.mdファイルに外出し)で書いていて、index.html内にremotes.jsの記述を追加することで、スマホでのページ送りを可能にしています。</p>
+
+<p>開発者向けにAnsibleに興味はあっても、普段はサーバをいじらないのでなかなか始められないという層を対象にした資料になります。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Divmod]]></title>
+    <link href="http://n10o.com/blog/2014/06/29/divmod/"/>
+    <updated>2014-06-29T12:24:38+00:00</updated>
+    <id>http://n10o.com/blog/2014/06/29/divmod</id>
+    <content type="html"><![CDATA[<p>checkioで、数値を発音(e.x. 123->one hundred twenty three)に直す問題で役に立った、商と余りを同時に算出する渋い関数
+``` python</p>
+
+<blockquote><p>divmod(123, 10)
+(12, 3)
+divmod(12, 10)
+(1, 2)
+```</p></blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Checkio]]></title>
+    <link href="http://n10o.com/blog/2014/06/14/checkio/"/>
+    <updated>2014-06-14T04:58:20+00:00</updated>
+    <id>http://n10o.com/blog/2014/06/14/checkio</id>
+    <content type="html"><![CDATA[<p>checkio(<a href="http://www.checkio.org/">http://www.checkio.org/</a>)に登録しました。</p>
+
+<p>checkioはpythonを使って様々な課題を解いていく海外サービスです。</p>
+
+<p>ユーザ登録時にpythonの問題が出題され、その問題を解かないとユーザ登録ができないということで、2014/2月ぐらいに話題になりました。</p>
+
+<p>私が登録したときに出題された問題は、「受け取った配列の最初の３要素の合計値を出すように、以下のcheckio関数を完成させよ」というものでした。
+``` python checkio first tryout</p>
+
+<h1>python3.3 is inside</h1>
+
+<p>def checkio(els):</p>
+
+<pre><code>return els
+</code></pre>
+
+<p>if checkio([1, 2, 3, 4, 5, 6]) == 6:</p>
+
+<pre><code>print('Done!')
+</code></pre>
+
+<p><code>
+私は意気揚々と以下のように解答しましたが、
+Wrong, Try again!でした。下に書いてあるテストケースは罠ですね。
+</code> python n10o&rsquo;s sweet answer
+def checkio(els):</p>
+
+<pre><code>return 6
+</code></pre>
+
+<p>```</p>
+]]></content>
+  </entry>
+  
+</feed>

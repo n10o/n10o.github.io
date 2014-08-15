@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[n10o.com]]></title>
+  <link href="http://n10o.com/atom.xml" rel="self"/>
+  <link href="http://n10o.com/"/>
+  <updated>2014-08-15T09:39:36+00:00</updated>
+  <id>http://n10o.com/</id>
+  <author>
+    <name><![CDATA[n10o]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Ec2-signalリリース]]></title>
+    <link href="http://n10o.com/blog/2014/08/15/ec2-signal-released/"/>
+    <updated>2014-08-15T07:49:31+00:00</updated>
+    <id>http://n10o.com/blog/2014/08/15/ec2-signal-released</id>
+    <content type="html"><![CDATA[<p>AWSのEC2でインスタンス(サーバ)の稼働状態の確認/起動/停止を気軽に実施するためのWebアプリの<a href="https://github.com/n10o/ec2-signal">ソースを公開</a>しました。</p>
+
+<p>angular.js + express(node.js) + jade + stylusを使って作っていて、非同期でサクサク動きますし、 画面遷移無しの絞込やソート機能が入っているので、気軽度は高めだと思います。権限管理もAWSのIAMを使えばいいので、自由自在です。</p>
+
+<p>経費削減のために検証環境のサーバを頻繁に起動したり停止したりするので、開発者が自分で気軽に事故なくそういう作業をできるようにしたいという思いから生まれた製品です。</p>
+
+<p>他にも、cronで業務時間外に利用しないインスタンスを停止させるような設定を入れておいた場合に、残業で急遽インスタンスが必要になったという悲しみを背負った時にも使っていただけるのではないかと思います。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Fluent-plugin-elasticsearchのハマりポイント]]></title>
+    <link href="http://n10o.com/blog/2014/07/15/fluentd-elasticsearch-plugin/"/>
+    <updated>2014-07-15T11:27:45+00:00</updated>
+    <id>http://n10o.com/blog/2014/07/15/fluentd-elasticsearch-plugin</id>
+    <content type="html"><![CDATA[<p>FluentdでElasticsearchサーバにデータを送るときに使う<a href="https://github.com/uken/fluent-plugin-elasticsearch">fluent-plugin-elasticsearch</a>を利用するためには、公式にも書いてあるようにlibcurl-develが必要です。</p>
+
+<p>これを/etc/sysconfig/clockを適切に設定していないAmazon Linux AMIにインストールすると、内部的にglibcが更新され、その際に時刻情報がUTCに再設定されて、面倒なことになります。</p>
+
+<p>もしJSTにするなら以下の事前設定が必要です。ファイルコピーをした時点で時刻はJSTになるので、それだけでも当座はしのげますが、clockを書き換えないとパッケージを色々更新した時にいつの間にか時刻情報が巻き戻ってハマる可能性があります。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ cp /usr/share/zoneinfo/Japan /etc/localtime
+</span><span class='line'>$ cat /etc/sysconfig/clock
+</span><span class='line'>ZONE="Asia/Tokyo"
+</span><span class='line'>UTC=False</span></code></pre></td></tr></table></div></figure>
+
+
+<p>なお、実際に時刻情報が書き換わってしまうと、crondが動作しなくなるので、/etc/init.d/crond restartして下さい。</p>
+
+<p>上記現象でcrondが動かなくなると、/var/log/cronに(root) FAILED to authorize user with PAM (Module is unknown) が出て動作しなくなります。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Minimum-ansible]]></title>
+    <link href="http://n10o.com/blog/2014/07/04/minimum-ansible/"/>
+    <updated>2014-07-04T13:52:52+00:00</updated>
+    <id>http://n10o.com/blog/2014/07/04/minimum-ansible</id>
+    <content type="html"><![CDATA[<p>社内でプレゼンした<a href="http://n10o.com/minimum-ansible/">minimum-ansible</a>の資料を公開しました。github pagesでホストしており、<a href="https://github.com/n10o/minimum-ansible">ここ</a>でソースを公開しています。</p>
+
+<p>プレゼン資料自体はreveal.jsをmarkdown(content.mdファイルに外出し)で書いていて、index.html内にremotes.jsの記述を追加することで、スマホでのページ送りを可能にしています。</p>
+
+<p>開発者向けにAnsibleに興味はあっても、普段はサーバをいじらないのでなかなか始められないという層を対象にした資料になります。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Slack-and-hubot]]></title>
+    <link href="http://n10o.com/blog/2014/07/03/slack-and-hubot/"/>
+    <updated>2014-07-03T12:20:09+00:00</updated>
+    <id>http://n10o.com/blog/2014/07/03/slack-and-hubot</id>
+    <content type="html"><![CDATA[<p>チャットツールのslackを試すついでにhubotを入れました。</p>
+
+<p>hubot自体のインストールは各所で書かれている通り、nodejsとnpmを入れて、npmでhubotとcoffee-scriptを入れてhubot &mdash;createで簡単にできます。</p>
+
+<p>slackとのつなぎ込みは<a href="https://github.com/tinyspeck/hubot-slack">hubot-slack</a>に書かれている通りに実施して、herokuでホストさせれば無料で動かせるところまでいきます。</p>
+
+<p>なお、hubotのプロジェクトを作った後に自動でscriptsフォルダが生成されますが、この中のスクリプトはデフォルトで実行されるので、不要なものは別の場所に置きましょう。初期スクリプトの中にはredisを利用するものもあるので、インストールしていなければ警告が出ます。</p>
+
+<p>後は、herokuのconfigで部屋情報等を設定し、slackの設定のIntegrationからhubotを設定すれば動きます。</p>
+
+<p>私はデフォルトのスクリプト系はほとんど外しておきましたが、以下のような状況に陥ったので、</p>
+
+<p><img src="http://n10o.com/images/slack1.jpg" alt="please pug me" /></p>
+
+<p>対応して、</p>
+
+<p><img src="http://n10o.com/images/slack2.jpg" alt="implement pug me" /></p>
+
+<p>ハッピーになったと思ったら、</p>
+
+<p><img src="http://n10o.com/images/slack3.jpg" alt="happy" /></p>
+
+<p>その後、チャットルームがpugだらけになってしまったので、良かったのか良くなかったのかはよくわかりません。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Page-build-warning]]></title>
+    <link href="http://n10o.com/blog/2014/07/03/page-build-warning/"/>
+    <updated>2014-07-03T10:38:29+00:00</updated>
+    <id>http://n10o.com/blog/2014/07/03/page-build-warning</id>
+    <content type="html"><![CDATA[<p>octopressでページをデプロイするたびに、githubから[n10o.github.io] Page Build Warningというメールがきていました。</p>
+
+<p>現在、URLを見ても明らかなように、apex domain(サブドメイン無しのdomain名)を使っています。</p>
+
+<p>その場合、204.232.175.78(deprecated)に向けていたDNSのAレコードを、192.30.252.153と192.30.252.154に切り替えてくれとのことです。<a href="https://help.github.com/articles/tips-for-configuring-an-a-record-with-your-dns-provider">参考:github help</a></p>
+
+<p>なお、DNSでALIASレコードかANAMEレコードが使える場合はそっちを使えばCDNが効くからオススメらしいです。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Divmod]]></title>
+    <link href="http://n10o.com/blog/2014/06/29/divmod/"/>
+    <updated>2014-06-29T12:24:38+00:00</updated>
+    <id>http://n10o.com/blog/2014/06/29/divmod</id>
+    <content type="html"><![CDATA[<p>checkioで、数値を発音(e.x. 123->one hundred twenty three)に直す問題で役に立った、商と余りを同時に算出する渋い関数</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="o">&gt;</span> <span class="nb">divmod</span><span class="p">(</span><span class="mi">123</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</span><span class='line'><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="nb">divmod</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</span><span class='line'><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Checkio]]></title>
+    <link href="http://n10o.com/blog/2014/06/14/checkio/"/>
+    <updated>2014-06-14T04:58:20+00:00</updated>
+    <id>http://n10o.com/blog/2014/06/14/checkio</id>
+    <content type="html"><![CDATA[<p>checkio(<a href="http://www.checkio.org/">http://www.checkio.org/</a>)に登録しました。</p>
+
+<p>checkioはpythonを使って様々な課題を解いていく海外サービスです。</p>
+
+<p>ユーザ登録時にpythonの問題が出題され、その問題を解かないとユーザ登録ができないということで、2014/2月ぐらいに話題になりました。</p>
+
+<p>私が登録したときに出題された問題は、「受け取った配列の最初の３要素の合計値を出すように、以下のcheckio関数を完成させよ」というものでした。</p>
+
+<figure class='code'><figcaption><span>checkio first tryout</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c">#python3.3 is inside</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">checkio</span><span class="p">(</span><span class="n">els</span><span class="p">):</span>
+</span><span class='line'>    <span class="k">return</span> <span class="n">els</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">if</span> <span class="n">checkio</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
+</span><span class='line'>    <span class="k">print</span><span class="p">(</span><span class="s">&#39;Done!&#39;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>私は意気揚々と以下のように解答しましたが、
+Wrong, Try again!でした。下に書いてあるテストケースは罠ですね。</p>
+
+<figure class='code'><figcaption><span>n10o&#8217;s sweet answer</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">def</span> <span class="nf">checkio</span><span class="p">(</span><span class="n">els</span><span class="p">):</span>
+</span><span class='line'>    <span class="k">return</span> <span class="mi">6</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Intro]]></title>
+    <link href="http://n10o.com/blog/2014/06/07/first-post/"/>
+    <updated>2014-06-07T05:23:11+00:00</updated>
+    <id>http://n10o.com/blog/2014/06/07/first-post</id>
+    <content type="html"><![CDATA[<p>このブログはOctopressを使ってgithub pagesでホストしています。</p>
+
+<p>deployが面倒(rake generate &ndash;> rake deploy)だったので、CIツールの<a href="http://wercker.com/">wercker</a>を使って、githubに記事をpushしたら自動deployする設定にしています。</p>
+
+<p>たまにbuildやdeployで反応がなくなって15分のタイムアウトでこけるところと、どうしてもウェルカー(正しくはワーカー)と読んでしまう事を除けば、werckerいい感じです。</p>
+
+<p><img src="http://n10o.com/images/wercker.jpg" alt="wercker" /></p>
+
+<p>ただ、記事を書く作業が一番面倒なので、そのうち記事を書く作業も自動化したいです。</p>
+]]></content>
+  </entry>
+  
+</feed>

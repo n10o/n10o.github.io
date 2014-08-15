@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Elasticsearch | n10o.com]]></title>
+  <link href="http://n10o.com/blog/categories/elasticsearch/atom.xml" rel="self"/>
+  <link href="http://n10o.com/"/>
+  <updated>2014-08-15T09:39:36+00:00</updated>
+  <id>http://n10o.com/</id>
+  <author>
+    <name><![CDATA[n10o]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Fluent-plugin-elasticsearchのハマりポイント]]></title>
+    <link href="http://n10o.com/blog/2014/07/15/fluentd-elasticsearch-plugin/"/>
+    <updated>2014-07-15T11:27:45+00:00</updated>
+    <id>http://n10o.com/blog/2014/07/15/fluentd-elasticsearch-plugin</id>
+    <content type="html"><![CDATA[<p>FluentdでElasticsearchサーバにデータを送るときに使う<a href="https://github.com/uken/fluent-plugin-elasticsearch">fluent-plugin-elasticsearch</a>を利用するためには、公式にも書いてあるようにlibcurl-develが必要です。</p>
+
+<p>これを/etc/sysconfig/clockを適切に設定していないAmazon Linux AMIにインストールすると、内部的にglibcが更新され、その際に時刻情報がUTCに再設定されて、面倒なことになります。</p>
+
+<p>もしJSTにするなら以下の事前設定が必要です。ファイルコピーをした時点で時刻はJSTになるので、それだけでも当座はしのげますが、clockを書き換えないとパッケージを色々更新した時にいつの間にか時刻情報が巻き戻ってハマる可能性があります。
+<code>
+$ cp /usr/share/zoneinfo/Japan /etc/localtime
+$ cat /etc/sysconfig/clock
+ZONE="Asia/Tokyo"
+UTC=False
+</code>
+なお、実際に時刻情報が書き換わってしまうと、crondが動作しなくなるので、/etc/init.d/crond restartして下さい。</p>
+
+<p>上記現象でcrondが動かなくなると、/var/log/cronに(root) FAILED to authorize user with PAM (Module is unknown) が出て動作しなくなります。</p>
+]]></content>
+  </entry>
+  
+</feed>
